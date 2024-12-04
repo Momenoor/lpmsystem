@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/******************************************
+Redish Background
+******************************************/
+
+
+ul.course-details-meta a.enroll:hover, .event-thumb a:hover,
+.home1-slider .owl-carousel .owl-nav button.owl-next:hover, 
+.home1-slider .owl-carousel .owl-nav button.owl-prev:hover, 
+.home1-slider .owl-carousel button.owl-dot:hover,
+.my-account .acc-btn i, .sicon-btn:hover, .btn-group.open .sicon-btn, .home1-slider .slide-caption a, .cart-box .view-link a, .welcome-title h1:after, a.btn-style-1:after, .more-news, .news-box a.news-details, .load-more a:hover, .edate, .my-account .acc-btn i, ul.team-social a:hover, .stitle2:after, .fl-pagination .pagination>li.active a, .fl-pagination .pagination>li>a:hover, .fl-pagination .pagination>li>span:hover, .ci-box.c2 .hcp-icon, .ci-box.c2:hover strong, .newsletter .container, .team-page .team-box .team-cap .plusc, .team-style-1.team-page .team-box ul.team-social a:hover, .team-contact button:hover, .header-right li.apply a, .h3-banner-cap .search-form .sbtn:hover, .h3-title:after, #h3-dprt.owl-theme .owl-nav button:hover, .h3-featured-courses ul.nav li.active a, .h3-featured-courses ul.nav li a:hover, .course-thumb .cdeprt, .course-thumb a:hover, .course-box-2:hover .cdetail, .course-grid-box:hover a.cdetail, .h3-newsletter .input-group .subscribe, .home3-faq .panel-title a, .search-widget .sbtn, .sidebar .textwidget .social a:hover, .side-quick-link li:hover i, ul.upcoming-events li:hover, .tagcloud a:hover, .event-gallery .owl-theme .owl-nav [class*='owl-']:hover, .event-counter, .post-thumb a:hover, span.note, .course-table td span, .time-table th, .search-404 button, a.back2home, .home1-slider .slide-caption a {
+	background-color: #983998 ;
+	color:#fff;
+}
+/******************************************
+Redish Text Color
+******************************************/
+
+.course-grid-box .fc-rating i:hover,
+.icon-box:hover h5, span.tw-meta a:hover, .copyrights a:hover, .widget .quick-links a:hover, .course-listing .course-grid-box .course-excerpt .cdetail:hover,
+.header-style-1 .navbar-nav>li>a:hover, .header-style-1 .navbar-nav>li>a:focus, .cart-box .item a, .welcome-title strong, .campus-box:hover a, ul.achievements li:hover strong, ul.achievements li:hover i, .header-style-1 .navbar-nav>li>a:hover, .header-style-1 .navbar-nav>li>a:focus, span.etime i, .event-box .event-excerpt span i, .event-thumb a, .team-name strong, .other-members a:before, .other-members a:hover, .ci-box.c2:hover .hcp-icon, .team-style-1.team-page .team-box ul.team-social a, .team-style-1.team-page .team-box .team-cap strong, .team-details-text strong.team-title, .team-details-text ul.check-list li:before, .team-details-text .taddress li i, ul.header-left a:hover, .header-right a:hover, .header-style-3 .navbar a:hover, .h3-banner-cap .search-form li i, .who-we-are a:hover, .course-box-2 .course-meta li i, .course-box-2 .ctxt strong, .course-box-2:hover .course-excerpt h4 a, .course-grid-box ul.course-meta li i, .course-grid-box:hover h4 a, .h3-testimonials .tbox strong, ul.social-links a:hover, .sidebar .textwidget .name, .side-quick-link li:hover a, span.sb-date i, .latest-posts h6 a:hover, .details-col .title-area span i, .blog-grid-post .post-excerpt .date, .blog-grid-post .post-excerpt a.bd:hover, .blog-grid-post .post-excerpt h4 a:hover, ul.course-details-meta .fc-rating, ul.course-details-meta h4, .course-text .check-list li:before, .page-404-wrap .not-found {
+	color: #983998 ;
+}
+/******************************************
+Redish Border Color
+******************************************/
+
+
+.sicon-btn:hover, .btn-group.open .sicon-btn, ul.team-social a:hover, .team-style-1.team-page .team-box ul.team-social a, #h3-dprt.owl-theme .owl-nav button:hover, .h3-featured-courses ul.nav li.active a, .h3-featured-courses ul.nav li a:hover, .course-thumb a:hover, .course-box-2:hover .cdetail, .sidebar .textwidget .social a:hover, .tagcloud a:hover {
+	border-color: #983998 ;
+}
+
+
+
+
+
+
+
+/******************************************
+Dark Blue Background Color
+******************************************/
+
+ .course-grid-box:hover .course-thumb .cdeprt, .search-widget .sbtn:hover,
+a.more-news:hover, .other-members ul .footer, .footer-social a:hover, .newsletter .input-group .subscribe, .team-details-text ul.team-social a:hover, .team-contact button, .team-faq .panel.panel-default, .header-style-3 .header-top, .h3-banner-cap .search-form .sbtn, .course-grid-box a.cdetail, .footer-map:after, .side-quick-link li i, .share button, .details-col blockquote, .blog-details blockquote, ul.course-details-meta a.enroll, .header-style-1.relative, .cart-box .view-link a:hover {
+	background-color: #fff;
+}
+/******************************************
+Dark Blue Color
+******************************************/
+.input-group:hover i, .course-listing .course-grid-box .course-excerpt .cdetail,
+.blog-grid-post .post-meta li:hover, .copyrights a,
+a.btn-style-1, .who-we-are a .course-thumb a .cdetail .course-grid-box h4 a:hover {
+	color: #fff;
+}
+/******************************************
+Border Color
+******************************************/
+
+a.btn-style-1 .footer-social a:hover .team-details-text ul.team-social a:hover {
+	border-color: #fff;
+}
