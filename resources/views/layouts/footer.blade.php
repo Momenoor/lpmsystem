@@ -36,11 +36,10 @@
                     <h4>Contact us</h4>
                     <address>
                         <ul>
-                            <li><i class="fas fa-home"></i> Kings Avanue Littel Next Street, Nova Land Tile Newyork, USA
-                            </li>
-                            <li><i class="fas fa-phone"></i> +44 6589 9874</li>
-                            <li><i class="fas fa-envelope"></i> info@edugrade.com</li>
-                            <li><i class="fas fa-globe"></i> www.edugrade.com</li>
+                            <li><i class="fas fa-home"></i> {{setting('address')}}</li>
+                            <li><i class="fas fa-phone"></i> {{setting('phone')}}</li>
+                            <li><i class="fas fa-envelope"></i> {{setting('email')}}</li>
+                            <li><i class="fas fa-globe"></i> {{env('APP_URL')}}</li>
                         </ul>
                     </address>
                 </div>
@@ -54,10 +53,11 @@
                 <div class="col-md-6">
                     <ul class="footer-social">
                         @foreach(setting('social_links') as $link)
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li>
+                                <a href="{{$link['url']}}">
+                                    <i class="{{\App\Enums\SocialLinkIcons::from($link['platform'])->icon()}}"></i>
+                                </a>
+                            </li>
                         @endforeach
                     </ul>
                 </div>

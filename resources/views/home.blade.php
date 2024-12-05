@@ -8,51 +8,26 @@
                 <div class="col-md-6">
                     <div class="welcome-box">
                         <div class="welcome-title">
-                            <strong>About University</strong>
-                            <h1>Welcome To Edugrade</h1>
+                            <strong>{{__("About Us")}}</strong>
+                            <h1>{{setting('about_us_title')}}</h1>
                         </div>
-                        <p> Edugrade University is one of the world's leading research universities.It is our conviction
-                            that even the ongoing academic programs must be kept under microscopic analysis and the
-                            curriculum be made a living entity with a built in phenomena of improvement and
-                            perfection.Concept and an ideology that revolves around the phenomenon of Change for
-                            Better. </p>
-                        <a class="btn-style-1" href="#">More About</a>
+                        <p> {{setting('about_us_description')}} </p>
+                        <a class="btn-style-1" href="#">{{__("More About")}}</a>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <!--Icon Box Start-->
-                            <div class="icon-box mb-40">
-                                <img src="images/h1-icon1.png" alt="">
-                                <h5>Degree Program</h5>
-                                <p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                        @foreach(setting('icon_boxes') as $icon_box)
+                            <div class="col-md-6 col-sm-6">
+                                <!--Icon Box Start-->
+                                <div class="icon-box mb-40">
+                                    <img src="{{asset('storage/'.$icon_box['image'])}}" width="100" alt="">
+                                    <h5>{{$icon_box['title']}}</h5>
+                                    <p>{{$icon_box['description']}}</p>
+                                </div>
+                                <!--Icon Box End-->
                             </div>
-                            <!--Icon Box End-->
-                            <!--Icon Box Start-->
-                            <div class="icon-box">
-                                <img src="images/h1-icon2.png" alt="">
-                                <h5>Scholars</h5>
-                                <p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod.</p>
-                            </div>
-                            <!--Icon Box End-->
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <!--Icon Box Start-->
-                            <div class="icon-box mb-40">
-                                <img src="images/h1-icon3.png" alt="">
-                                <h5>Library</h5>
-                                <p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod.</p>
-                            </div>
-                            <!--Icon Box End-->
-                            <!--Icon Box Start-->
-                            <div class="icon-box">
-                                <img src="images/h1-icon4.png" alt="">
-                                <h5>Alumni Directory</h5>
-                                <p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod.</p>
-                            </div>
-                            <!--Icon Box End-->
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

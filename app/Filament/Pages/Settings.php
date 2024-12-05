@@ -143,13 +143,23 @@ class Settings extends Page implements HasForms
                                     ])->toArray()
                             )
                             ->extraInputAttributes(function ($get) {
-                                return ['style' => 'color: ' . SocialLinkIcons::from($get('platform'))->color()];
-                            }),
-                        TextInput::make('url')->label('URL')->url(),
+                                if ($get('platform')) {
+                                    return ['style' => 'color: ' . SocialLinkIcons::from($get('platform'))->color()];
+                                }
+                                return [];
+                            })
+                            ->unique()
+                            ->live(onBlur: true),
+                        TextInput::make('url')
+                            ->label(__('admin.fields.url'))
+                            ->url()
+                            ->required(),
                     ])
+                    ->maxItems(count(SocialLinkIcons::cases())) // Use PHP's native count function
                     ->collapsible()
-                    ->default([])
+                    ->default([]) // Ensure it's initialized as an empty array
                     ->columns(2),
+
             ]),
             Fieldset::make(label: __('admin.fields.icon_boxes'))->schema([
                 Repeater::make('data.icon_boxes')
