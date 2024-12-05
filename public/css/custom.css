@@ -1750,7 +1750,7 @@ Home 1 Footer Start
 
 .widget address ul li {
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
     padding-right: 26px;
     position: relative;
 }
@@ -1758,7 +1758,7 @@ Home 1 Footer Start
 .widget address ul li i {
     position: absolute;
     right: 0;
-    top: 3px;
+    top: 0;
 }
 
 .copylefts {
