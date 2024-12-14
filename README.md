@@ -1,66 +1,134 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+ملخص المشروع
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+الموقع هو منصة تعليمية شاملة مخصصة لإدارة المعاهد التعليمية والدارسين، ويهدف إلى توفير تجربة مميزة للإدارة الأكاديمية والطلاب من خلال تقديم أدوات متكاملة لإدارة المحتوى التعليمي، الصفحات الإعلامية، والتفاعل مع المستخدمين.
 
-## About Laravel
+هيكل الموقع
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+1. قاعدة البيانات
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+تشمل قاعدة البيانات جداول متعددة لتخزين البيانات المختلفة المتعلقة بالموقع. أهم الجداول:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+اسم الجدول	الغرض
+departments	تخزين معلومات الأقسام الأكاديمية.
+courses	تخزين تفاصيل الدورات وربطها بالأقسام.
+subjects	تخزين المواد وربطها بالدورات.
+staff	تخزين بيانات الموظفين مثل السيرة الذاتية والخبرات.
+blogs	إدارة المقالات، الأخبار، النشرات الإخبارية، والإعلانات.
+events	تخزين تفاصيل الفعاليات مثل التاريخ والموقع والوصف.
+galleries	إدارة معارض الصور مع التصنيفات.
+sliders	تخزين السلايدر (العروض التقديمية) لصفحة الرئيسية.
+honor_lists	إدارة قوائم الشرف للطلاب أو الموظفين.
+settings	تخزين الإعدادات الديناميكية للموقع (مثل الاسم والشعار والروابط الاجتماعية).
+subscribers	تخزين عناوين البريد الإلكتروني للمشتركين بالنشرة الإخبارية.
 
-## Learning Laravel
+2. الهيكل الخلفي (Backend Structure)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+النظام الخلفي مبني باستخدام Laravel ويتضمن:
+	•	المتحكمات (Controllers):
+	•	إدارة العمليات لكل كيان مثل الأقسام والدورات والمدونات.
+	•	النماذج (Models):
+	•	تمثيل الجداول مثل Department، وCourse.
+	•	الخدمات (Services):
+	•	خدمات مثل SettingsService لتحميل الإعدادات وتخزينها.
+	•	موارد Filament:
+	•	إدارة كل الكيانات (مثل الأقسام والدورات والمدونات) من خلال واجهة Filament.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+3. الواجهة الأمامية (Frontend)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+الواجهة الأمامية تعرض المحتوى الديناميكي الذي يتم إدارته من خلال لوحة تحكم المدير:
+	•	الصفحة الرئيسية:
+	•	سلايدر (عروض تقديمية) تسلط الضوء على أبرز المحتويات.
+	•	روابط سريعة للدورات، الأقسام، والأخبار.
+	•	الصفحات الإعلامية:
+	•	معلومات عن الموقع (من نحن).
+	•	قوائم الشرف (Honor List).
+	•	صفحة تواصل معنا.
+	•	الصفحات الأكاديمية:
+	•	الأقسام: قائمة بالأقسام الأكاديمية.
+	•	الدورات: عرض الدورات مع التفاصيل والمواد المرتبطة بها.
+	•	الموظفون: عرض ملفات الموظفين.
+	•	صفحات التفاعل:
+	•	المدونة: عرض المقالات والنشرات الإخبارية.
+	•	الفعاليات: قائمة بالفعاليات القادمة.
 
-## Laravel Sponsors
+ميزات الموقع
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+1. إدارة الطلاب والدارسين
 
-### Premium Partners
+الموقع يوفر بيئة متكاملة لإدارة الطلاب والدارسين داخل المعهد. يهدف إلى تحسين تجربة التعلم والتفاعل بين الطلاب والإدارة من خلال الميزات التالية:
+	•	إدارة بيانات الطلاب:
+	•	إنشاء ملفات تعريف شخصية لكل طالب تحتوي على تفاصيل مثل الاسم، الاتصال، القسم، والتخصص.
+	•	عرض الأداء الأكاديمي من خلال قوائم الشرف.
+	•	تسجيل الطلاب في الدورات:
+	•	ربط الطلاب بالدورات الأكاديمية وإدارة الحضور والغياب.
+	•	تحسين تجربة الطالب:
+	•	تمكين الطلاب من الوصول إلى المحتوى التعليمي بسهولة والتواصل مع المدرسين والإدارة.
+	•	دعم التفاعل:
+	•	إرسال تحديثات عبر البريد الإلكتروني حول الفعاليات والمواعيد المهمة.
+	•	السماح بالمشاركة في الفعاليات الأكاديمية.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+2. إدارة الإعدادات
+	•	إعدادات ديناميكية تشمل:
+	•	اسم الموقع وشعاره.
+	•	الألوان الأساسية والثانوية.
+	•	روابط التواصل الاجتماعي.
+	•	معلومات الاتصال (الهاتف، البريد الإلكتروني، العنوان).
+	•	بيانات تحسين محركات البحث (SEO).
 
-## Contributing
+3. إدارة المدونة
+	•	أنواع متعددة:
+	•	مقالات، أخبار، نشرات إخبارية، إعلانات.
+	•	محرر نصوص غني (Rich Editor) لإدارة المحتوى.
+	•	دعم الصور المميزة وتواريخ النشر.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+4. الإدارة الأكاديمية
+	•	الأقسام:
+	•	إنشاء، تعديل، حذف الأقسام الأكاديمية.
+	•	الدورات:
+	•	ربط الدورات بالأقسام وإضافة المواد المرتبطة.
+	•	المواد:
+	•	إدارة المواد الأكاديمية وربطها بالدورات.
+	•	الموظفون:
+	•	عرض ملفات المدرسين والموظفين.
 
-## Code of Conduct
+5. إدارة الوسائط
+	•	معرض الصور:
+	•	رفع الصور مع تصنيفات.
+	•	السلايدر:
+	•	إدارة السلايدر على الصفحة الرئيسية.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+6. أدوات التفاعل
+	•	النشرات الإخبارية:
+	•	إدارة المشتركين وإرسال رسائل بريد إلكتروني.
+	•	الفعاليات:
+	•	إدارة الفعاليات مع تفاصيلها.
 
-## Security Vulnerabilities
+7. قوائم الشرف
+	•	عرض الطلاب أو الموظفين المتفوقين.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+مميزات خاصة للمطورين
 
-## License
+1. إعدادات ديناميكية
+	•	يتم تحميل جميع الإعدادات مرة واحدة في وقت التشغيل باستخدام SettingsService.
+	•	الكاش (Cache) يُستخدم لتحسين الأداء.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+2. دعم الوسائط المتعددة
+	•	رفع الصور والملفات وتنظيمها تلقائياً في مجلدات مخصصة.
+
+3. دعم الترجمة
+	•	جميع الحقول والرسائل مترجمة إلى اللغة العربية.
+
+4. تحسين الأداء
+	•	العلاقات الفعالة بين الجداول مثل العلاقات متعددة الاتجاهات (Many-to-Many).
+	•	الاستعلامات الأمثل باستخدام Laravel Eloquent.
+
+5. النماذج الديناميكية
+	•	إظهار وإخفاء الحقول بناءً على الشروط.
+	•	توليد قيم ديناميكية مثل الـslug بناءً على الحقول الأخرى.
+
+الخلاصة
+
+الموقع متكامل، يدعم التخصيص الكامل من خلال لوحة الإدارة، ويوفر الأدوات اللازمة لإدارة معهد تعليمي بكفاءة. يشمل إدارة الطلاب، الدورات، المدونة، والإعدادات الديناميكية، مع إمكانية إضافة المزيد من الميزات المستقبلية مثل:
+	•	دعم المدفوعات للدورات.
+	•	نظام تسجيل الطلاب.
+	•	تقارير إحصائية للأداء الأكاديمي
