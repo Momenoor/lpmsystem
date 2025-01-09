@@ -108,13 +108,22 @@ class AdminController extends Controller
      * Delete an item
      */
     public function destroy($id)
-    {
-        $item = $this->model->findOrFail($id);
-        if ($item->delete()) {
-            session()->flash('success', $this->successMessages['delete']);
-        } else {
-            session()->flash('error', $this->errorMessages['delete']);
-        }
-        return redirect()->back();
+{
+    $item = $this->model->findOrFail($id);
+
+  
+    if (isset($item->image) && \Storage::exists("public/images/{$this->moduleName}/{$item->image}")) {
+        \Storage::delete("public/images/{$this->moduleName}/{$item->image}");
     }
+
+   
+    if ($item->delete()) {
+        session()->flash('success', $this->successMessages['delete']);
+    } else {
+        session()->flash('error', $this->errorMessages['delete']);
+    }
+
+    return redirect()->back();
+}
+
 }

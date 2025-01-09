@@ -14,6 +14,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
  
 Route::prefix('dashboard/')->group(function () {
 
-Route::resource('blogs',[BlogController::class]);
+// Route::resource('blogs',[BlogController::class]);
 
 });
