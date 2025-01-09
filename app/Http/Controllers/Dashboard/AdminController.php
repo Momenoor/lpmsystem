@@ -38,7 +38,7 @@ class AdminController extends Controller
         $this->moduleActions = ['destroy', 'create', 'store', 'update'];
     }
 
-    /**
+    /** 
      * Set default success and error messages
      */
     protected function setFlashMessages()
