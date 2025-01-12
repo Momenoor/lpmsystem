@@ -22,7 +22,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
- 
+
 Route::prefix('dashboard/')->group(function () {
 
 Route::resource('blogs',BlogController::class);
@@ -39,3 +39,14 @@ Route::resource('subjects',SubjectController::class);
 Route::resource('subscribers',SubscriberController::class);
 
 });
+Route::get('/language/{language}', function ($language) {
+    $supportedLocales = config('app.supported_locales', ['en', 'ar']);
+    if (in_array($language, $supportedLocales)) {
+        session(['locale' => $language]); // Store the language in the session
+        app()->setLocale($language); // Set the application's locale
+    }
+
+    return redirect()->back(); // Redirect back to the previous page
+})->name('set-locale');
+
+Route::resource('blogs', \App\Http\Controllers\Dashboard\BlogController::class);

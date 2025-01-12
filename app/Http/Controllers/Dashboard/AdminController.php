@@ -31,14 +31,14 @@ class AdminController extends Controller
      */
     protected function initializeProperties()
     {
-        $this->moduleName = Str::snake(Str::plural(class_basename($this)));
+        $this->moduleName = Str::snake(Str::plural(str_replace('_controller', '', class_basename($this))));
         $this->methodName = request()->route()->getActionMethod();
         $this->methodView = "{$this->dashView}.{$this->moduleName}.{$this->methodName}";
         $this->indexRoute = route("{$this->moduleName}.index");
         $this->moduleActions = ['destroy', 'create', 'store', 'update'];
     }
 
-    /** 
+    /**
      * Set default success and error messages
      */
     protected function setFlashMessages()
@@ -62,8 +62,8 @@ class AdminController extends Controller
     protected function shareDataToView()
     {
         view()->share([
-            'moduleName'   => $this->moduleName,
-            'methodName'   => $this->methodName,
+            'moduleName' => $this->moduleName,
+            'methodName' => $this->methodName,
             'moduleActions' => $this->moduleActions,
             'successMessages' => $this->successMessages,
         ]);
@@ -108,22 +108,22 @@ class AdminController extends Controller
      * Delete an item
      */
     public function destroy($id)
-{
-    $item = $this->model->findOrFail($id);
+    {
+        $item = $this->model->findOrFail($id);
 
-  
-    if (isset($item->image) && \Storage::exists("public/images/{$this->moduleName}/{$item->image}")) {
-        \Storage::delete("public/images/{$this->moduleName}/{$item->image}");
+
+        if (isset($item->image) && \Storage::exists("public/images/{$this->moduleName}/{$item->image}")) {
+            \Storage::delete("public/images/{$this->moduleName}/{$item->image}");
+        }
+
+
+        if ($item->delete()) {
+            session()->flash('success', $this->successMessages['delete']);
+        } else {
+            session()->flash('error', $this->errorMessages['delete']);
+        }
+
+        return redirect()->back();
     }
-
-   
-    if ($item->delete()) {
-        session()->flash('success', $this->successMessages['delete']);
-    } else {
-        session()->flash('error', $this->errorMessages['delete']);
-    }
-
-    return redirect()->back();
-}
 
 }

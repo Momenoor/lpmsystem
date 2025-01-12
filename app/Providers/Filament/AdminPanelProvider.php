@@ -2,9 +2,11 @@
 
 namespace App\Providers\Filament;
 
+use App\Http\Middleware\setLocale;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\MenuItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -55,9 +57,35 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                SetLocale::class,
             ])
             ->authMiddleware([
                 Authenticate::class,
+                SetLocale::class,
+            ])
+            ->userMenuItems([
+                MenuItem::make()
+                    ->icon('heroicon-o-language')
+                    ->label(function () {
+                        $supportedLocales = config('app.supported_locales');
+                        $currentLocale = config('app.locale');
+                        foreach ($supportedLocales as $supportedLocale) {
+                            if ($supportedLocale !== $currentLocale) {
+                                return strtoupper($supportedLocale);
+                            }
+                        }
+                        return strtoupper($currentLocale);
+                    })
+                    ->url(function () {
+                        $supportedLocales = config('app.supported_locales', ['en', 'ar']);
+                        $currentLocale = app()->getLocale();
+                        foreach ($supportedLocales as $supportedLocale) {
+                            if ($supportedLocale !== $currentLocale) {
+                                return route('set-locale', ['language' => $supportedLocale]);
+                            }
+                        }
+                        return '#';
+                    })
             ]);
     }
 }
